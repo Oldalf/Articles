@@ -1,14 +1,20 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { of } from 'rxjs';
-import { HEROES } from 'src/app/heroes.mock';
+import { map, take } from 'rxjs';
+import { Hero } from 'src/app/hero.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class HeroService {
-  constructor() {}
+  constructor(private httpClient: HttpClient) {}
 
   getHeroes() {
-    return of(HEROES);
+    return this.httpClient
+      .get<{ data: Hero[] }>('/assets/mock-heroes.json')
+      .pipe(
+        take(1),
+        map(resp => resp.data),
+      );
   }
 }
