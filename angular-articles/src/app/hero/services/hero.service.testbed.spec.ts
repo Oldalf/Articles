@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
 import { firstValueFrom, of } from 'rxjs';
 import { HEROES } from 'src/app/heroes.mock';
-
 import { HeroService } from './hero.service';
 
 describe('HeroService', () => {

@@ -96,6 +96,9 @@
             "styles": [
               "src/styles.css"
             ],
+            "include": [
+              "**/*.spec.ts"
+            ],
             "scripts": []
           }
         }
